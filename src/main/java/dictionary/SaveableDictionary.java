@@ -1,6 +1,8 @@
 package dictionary;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -47,25 +49,25 @@ public class SaveableDictionary {
     }
 
     // saves dictionary to file given to the dictionary as a parameter to the constructor
-//    public boolean save() throws IOException {
-//
-//        boolean wasSuccessful = false;
-//        try {
-//            PrintWriter writer = new PrintWriter(textFile);
-//
-//            for (Map.Entry<String, String> entry : dictionary.entrySet()) {
-//                writer.printf("%s:%s\n", entry.getKey(), entry.getValue());
-//            }
-//            wasSuccessful = true;
-//            writer.close();
-//
-//        } catch (Exception e) {
-//            System.out.println("Error: " + e.getMessage());
-//            wasSuccessful = false;
-//        }
-//        return wasSuccessful;
-//
-//    }
+    public boolean save() throws IOException {
+
+        boolean wasSuccessful = false;
+        try {
+            PrintWriter writer = new PrintWriter(textFile);
+
+            for (Map.Entry<String, String> entry : dictionary.entrySet()) {
+                writer.printf("%s:%s\n", entry.getKey(), entry.getValue());
+            }
+            wasSuccessful = true;
+            writer.close();
+
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage());
+            wasSuccessful = false;
+        }
+        return wasSuccessful;
+
+    }
 
 
     // adds a word to the dictionary
